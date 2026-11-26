@@ -148,4 +148,3 @@ Submit the repository link for the creation question, and `docs/Anchor-Writeup.p
 ## Provenance and license
 
 The supplied `anchor-chennai (3).html` was the source dashboard. This package extracts its frontend and adds code and documentation with AI assistance. No claims about the user's prior development process, field testing or deployment are invented. See `docs/PROVENANCE.md`. This package uses the MIT license for project code; confirm that you have rights to license the original before publishing. Third-party map/font/library rights remain with their owners.
-

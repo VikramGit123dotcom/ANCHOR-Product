@@ -1,0 +1,15 @@
+const fs=require('node:fs');
+const path=require('node:path');
+const {performance}=require('node:perf_hooks');
+const {respond}=require('../app/js/assistant-engine.js');
+const kb=require('../kb/relief-guide.json');
+const cases=require('./cases.json');
+const now=Date.parse('2026-11-26T12:00:00Z');
+const context={sites:[{item:'Drinking water',site:'Demo reservoir',qty:2400,use:400,unit:'kL'},{item:'Rice',site:'Demo warehouse',qty:400,use:60,unit:'t'}],roads:[{id:'clear',name:'Clear road',leg:'Port to store',status:'clear',km:21,source:'fixture',verifiedAt:new Date(now).toISOString()},{id:'unlit',name:'Unlit road',leg:'Port to store',status:'unlit',km:2,source:'fixture',verifiedAt:new Date(now).toISOString()}],needs:[{role:'Nurse',gap:10,where:'Demo hospital'}]};
+const results=cases.map(c=>{const start=performance.now();const result=respond(c.message,context,kb,{short:c.short,now});const ms=performance.now()-start;const failures=[];if(result.intent!==c.intent)failures.push('intent');if(c.tool&&result.tools[0]?.name!==c.tool)failures.push('tool');if(c.contains&&!result.answer.toLowerCase().includes(c.contains.toLowerCase()))failures.push('answer content');if(c.noTools&&result.tools.length)failures.push('unexpected tools');if(c.source&&!result.sources.some(s=>s.id===c.source))failures.push('source');if(c.short&&Array.from(result.answer).length>160)failures.push('short length');return {id:c.id,pass:failures.length===0,failures,latencyMs:+ms.toFixed(3),...result};});
+const times=results.map(x=>x.latencyMs).sort((a,b)=>a-b);
+const report={executedAt:new Date().toISOString(),node:process.version,method:'Single-process deterministic engine; fixed fictional context; no network/model latency. Cases are authored regression examples, not a held-out benchmark.',total:results.length,passed:results.filter(x=>x.pass).length,p50Ms:times[Math.floor(times.length*.5)],p95Ms:times[Math.min(times.length-1,Math.floor(times.length*.95))],results};
+fs.writeFileSync(path.join(__dirname,'results.json'),JSON.stringify(report,null,2)+'\n');
+fs.writeFileSync(path.join(__dirname,'RESULTS.md'),`# Assistant regression results\n\nExecuted: ${report.executedAt}\n\n${report.passed}/${report.total} authored cases passed. Node ${report.node}. Engine latency p50 ${report.p50Ms} ms; p95 ${report.p95Ms} ms. These measurements exclude HTTP, UI, model and external-service latency.\n\n${report.method}\n\n| Case | Expected intent | Result |\n|---|---|---|\n`+cases.map((c,i)=>`| ${c.id} | ${c.intent} | ${results[i].pass?'PASS':'FAIL: '+results[i].failures.join(', ')} |`).join('\n')+'\n');
+console.log(`${report.passed}/${report.total} cases passed; p50 ${report.p50Ms} ms, p95 ${report.p95Ms} ms`);
+if(report.passed!==report.total)process.exitCode=1;

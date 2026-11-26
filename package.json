@@ -1,0 +1,14 @@
+{
+  "name": "anchor-chennai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI-assisted Chennai relief coordination prototype with deterministic tools and a local request API",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node backend/server.js",
+    "test": "node --test tests/core.test.js tests/dashboard.test.js tests/server.test.js",
+    "eval": "node evals/run.js"
+  }
+}

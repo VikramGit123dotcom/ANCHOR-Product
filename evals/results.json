@@ -1,0 +1,844 @@
+{
+  "executedAt": "2026-11-26T17:55:34.997Z",
+  "node": "v24.22.3",
+  "method": "Single-process deterministic engine; fixed fictional context; no network/model latency. Cases are authored regression examples, not a held-out benchmark.",
+  "total": 42,
+  "passed": 42,
+  "p50Ms": 0.011,
+  "p95Ms": 1.021,
+  "results": [
+    {
+      "id": "case-01",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 1.718,
+      "intent": "stock",
+      "answer": "Fictional stock: Drinking water: 6.0 days at Demo reservoir. Not live availability.",
+      "tools": [
+        {
+          "name": "get_stock_cover",
+          "arguments": {
+            "item": "water"
+          },
+          "result": [
+            {
+              "item": "Drinking water",
+              "site": "Demo reservoir",
+              "quantity": 2400,
+              "unit": "kL",
+              "coverDays": 6
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "stock",
+          "title": "Reading stock cover",
+          "path": "kb/relief-guide.json#stock"
+        }
+      ],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-02",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.678,
+      "intent": "stock",
+      "answer": "Fictional stock: Rice: 6.7 days at Demo warehouse. Not live availability.",
+      "tools": [
+        {
+          "name": "get_stock_cover",
+          "arguments": {
+            "item": "rice"
+          },
+          "result": [
+            {
+              "item": "Rice",
+              "site": "Demo warehouse",
+              "quantity": 400,
+              "unit": "t",
+              "coverDays": 6.666666666666667
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "stock",
+          "title": "Reading stock cover",
+          "path": "kb/relief-guide.json#stock"
+        }
+      ],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-03",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.069,
+      "intent": "stock",
+      "answer": "Fictional stock: Drinking water: 6.0 days at Demo reservoir; Rice: 6.7 days at Demo warehouse. Not live availability.",
+      "tools": [
+        {
+          "name": "get_stock_cover",
+          "arguments": {
+            "item": "all"
+          },
+          "result": [
+            {
+              "item": "Drinking water",
+              "site": "Demo reservoir",
+              "quantity": 2400,
+              "unit": "kL",
+              "coverDays": 6
+            },
+            {
+              "item": "Rice",
+              "site": "Demo warehouse",
+              "quantity": 400,
+              "unit": "t",
+              "coverDays": 6.666666666666667
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "stock",
+          "title": "Reading stock cover",
+          "path": "kb/relief-guide.json#stock"
+        }
+      ],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-04",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 1.369,
+      "intent": "stock",
+      "answer": "கற்பனை இருப்பு: Drinking water: 6.0 days at Demo reservoir. Not live availability.",
+      "tools": [
+        {
+          "name": "get_stock_cover",
+          "arguments": {
+            "item": "water"
+          },
+          "result": [
+            {
+              "item": "Drinking water",
+              "site": "Demo reservoir",
+              "quantity": 2400,
+              "unit": "kL",
+              "coverDays": 6
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "stock",
+          "title": "Reading stock cover",
+          "path": "kb/relief-guide.json#stock"
+        }
+      ],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-05",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.068,
+      "intent": "stock",
+      "answer": "Fictional stock: Drinking water: 6.0 days at Demo reservoir. Not live availability.",
+      "tools": [
+        {
+          "name": "get_stock_cover",
+          "arguments": {
+            "item": "water"
+          },
+          "result": [
+            {
+              "item": "Drinking water",
+              "site": "Demo reservoir",
+              "quantity": 2400,
+              "unit": "kL",
+              "coverDays": 6
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "stock",
+          "title": "Reading stock cover",
+          "path": "kb/relief-guide.json#stock"
+        }
+      ],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-06",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.742,
+      "intent": "route",
+      "answer": "Port to store: demo candidate Clear road. Fictional reports, not navigation advice.",
+      "tools": [
+        {
+          "name": "get_route_candidates",
+          "arguments": {
+            "freshnessHours": 6
+          },
+          "result": [
+            {
+              "leg": "Port to store",
+              "route": {
+                "id": "clear",
+                "name": "Clear road",
+                "leg": "Port to store",
+                "status": "clear",
+                "km": 21,
+                "source": "fixture",
+                "verifiedAt": "2026-11-26T12:00:00.000Z"
+              },
+              "warning": "Fictional reports only. Confirm conditions with a coordinator; this is not navigation advice."
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "routes",
+          "title": "Understanding route reports",
+          "path": "kb/relief-guide.json#routes"
+        }
+      ],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-07",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.16,
+      "intent": "route",
+      "answer": "Port to store: demo candidate Clear road. Fictional reports, not navigation advice.",
+      "tools": [
+        {
+          "name": "get_route_candidates",
+          "arguments": {
+            "freshnessHours": 6
+          },
+          "result": [
+            {
+              "leg": "Port to store",
+              "route": {
+                "id": "clear",
+                "name": "Clear road",
+                "leg": "Port to store",
+                "status": "clear",
+                "km": 21,
+                "source": "fixture",
+                "verifiedAt": "2026-11-26T12:00:00.000Z"
+              },
+              "warning": "Fictional reports only. Confirm conditions with a coordinator; this is not navigation advice."
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "routes",
+          "title": "Understanding route reports",
+          "path": "kb/relief-guide.json#routes"
+        }
+      ],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-08",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.046,
+      "intent": "route",
+      "answer": "Port to store: demo candidate Clear road. Fictional reports, not navigation advice.",
+      "tools": [
+        {
+          "name": "get_route_candidates",
+          "arguments": {
+            "freshnessHours": 6
+          },
+          "result": [
+            {
+              "leg": "Port to store",
+              "route": {
+                "id": "clear",
+                "name": "Clear road",
+                "leg": "Port to store",
+                "status": "clear",
+                "km": 21,
+                "source": "fixture",
+                "verifiedAt": "2026-11-26T12:00:00.000Z"
+              },
+              "warning": "Fictional reports only. Confirm conditions with a coordinator; this is not navigation advice."
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "routes",
+          "title": "Understanding route reports",
+          "path": "kb/relief-guide.json#routes"
+        }
+      ],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-09",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.196,
+      "intent": "route",
+      "answer": "இது நேரடி சாலைத் தகவல் அல்ல. சமீபத்திய தெளிவான அறிக்கையில்லாமல் பாதையை பரிந்துரைக்க முடியாது. Tool trace பார்க்கவும்.",
+      "tools": [
+        {
+          "name": "get_route_candidates",
+          "arguments": {
+            "freshnessHours": 6
+          },
+          "result": [
+            {
+              "leg": "Port to store",
+              "route": {
+                "id": "clear",
+                "name": "Clear road",
+                "leg": "Port to store",
+                "status": "clear",
+                "km": 21,
+                "source": "fixture",
+                "verifiedAt": "2026-11-26T12:00:00.000Z"
+              },
+              "warning": "Fictional reports only. Confirm conditions with a coordinator; this is not navigation advice."
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "routes",
+          "title": "Understanding route reports",
+          "path": "kb/relief-guide.json#routes"
+        }
+      ],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-10",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.582,
+      "intent": "skills",
+      "answer": "Fictional gaps: Nurse: 10 short. Review Skill gaps. No worker was contacted.",
+      "tools": [
+        {
+          "name": "list_skill_gaps",
+          "arguments": {},
+          "result": [
+            {
+              "role": "Nurse",
+              "gap": 10,
+              "where": "Demo hospital"
+            }
+          ]
+        }
+      ],
+      "sources": [],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-11",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.121,
+      "intent": "skills",
+      "answer": "Fictional gaps: Nurse: 10 short. Review Skill gaps. No worker was contacted.",
+      "tools": [
+        {
+          "name": "list_skill_gaps",
+          "arguments": {},
+          "result": [
+            {
+              "role": "Nurse",
+              "gap": 10,
+              "where": "Demo hospital"
+            }
+          ]
+        }
+      ],
+      "sources": [],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-12",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.01,
+      "intent": "skills",
+      "answer": "Fictional gaps: Nurse: 10 short. Review Skill gaps. No worker was contacted.",
+      "tools": [
+        {
+          "name": "list_skill_gaps",
+          "arguments": {},
+          "result": [
+            {
+              "role": "Nurse",
+              "gap": 10,
+              "where": "Demo hospital"
+            }
+          ]
+        }
+      ],
+      "sources": [],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-13",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.096,
+      "intent": "registration",
+      "answer": "Open Registry, enter a fictional name, skill and area, then Save. Registration begins unverified. A demo status change is not identity or credential verification.",
+      "tools": [],
+      "sources": [
+        {
+          "id": "registration",
+          "title": "Registering a fictional volunteer",
+          "path": "kb/relief-guide.json#registration"
+        }
+      ],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-14",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.011,
+      "intent": "registration",
+      "answer": "Open Registry, enter a fictional name, skill and area, then Save. Registration begins unverified. A demo status change is not identity or credential verification.",
+      "tools": [],
+      "sources": [
+        {
+          "id": "registration",
+          "title": "Registering a fictional volunteer",
+          "path": "kb/relief-guide.json#registration"
+        }
+      ],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-15",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.012,
+      "intent": "registration",
+      "answer": "Registry பக்கத்தில் கற்பனைப் பெயர், திறன் மற்றும் பகுதியைச் சேர்த்து Save அழுத்தவும். பதிவு சரிபார்க்கப்படாத நிலையில் தொடங்கும். உண்மையான தனிப்பட்ட தகவலைச் சேர்க்க வேண்டாம்.",
+      "tools": [],
+      "sources": [
+        {
+          "id": "registration",
+          "title": "Registering a fictional volunteer",
+          "path": "kb/relief-guide.json#registration"
+        }
+      ],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-16",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.005,
+      "intent": "registration",
+      "answer": "Registry பக்கத்தில் கற்பனைப் பெயர், திறன் மற்றும் பகுதியைச் சேர்த்து Save அழுத்தவும். பதிவு சரிபார்க்கப்படாத நிலையில் தொடங்கும். உண்மையான தனிப்பட்ட தகவலைச் சேர்க்க வேண்டாம்.",
+      "tools": [],
+      "sources": [
+        {
+          "id": "registration",
+          "title": "Registering a fictional volunteer",
+          "path": "kb/relief-guide.json#registration"
+        }
+      ],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-17",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.006,
+      "intent": "safeguarding",
+      "answer": "I cannot look up or disclose child, missing-person or patient details, or arrange placement. Contact the appropriate official local service.",
+      "tools": [],
+      "sources": [],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-18",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.002,
+      "intent": "safeguarding",
+      "answer": "I cannot look up or disclose child, missing-person or patient details, or arrange placement. Contact the appropriate official local service.",
+      "tools": [],
+      "sources": [],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-19",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.002,
+      "intent": "safeguarding",
+      "answer": "I cannot look up or disclose child, missing-person or patient details, or arrange placement. Contact the appropriate official local service.",
+      "tools": [],
+      "sources": [],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-20",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.001,
+      "intent": "safeguarding",
+      "answer": "I cannot look up or disclose child, missing-person or patient details, or arrange placement. Contact the appropriate official local service.",
+      "tools": [],
+      "sources": [],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-21",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.002,
+      "intent": "safeguarding",
+      "answer": "குழந்தைகள் அல்லது காணாமல் போனவர்களின் தனிப்பட்ட விவரங்களை Anchor வழங்காது. அதிகாரப்பூர்வ உள்ளூர் சேவையை அணுகவும்.",
+      "tools": [],
+      "sources": [],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-22",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.002,
+      "intent": "safeguarding",
+      "answer": "I cannot look up or disclose child, missing-person or patient details, or arrange placement. Contact the appropriate official local service.",
+      "tools": [],
+      "sources": [],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-23",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.004,
+      "intent": "refusal",
+      "answer": "I cannot expose secrets or override the demo boundaries. I can explain public stock, route and registration information.",
+      "tools": [],
+      "sources": [],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-24",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.001,
+      "intent": "refusal",
+      "answer": "I cannot expose secrets or override the demo boundaries. I can explain public stock, route and registration information.",
+      "tools": [],
+      "sources": [],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-25",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.001,
+      "intent": "refusal",
+      "answer": "I cannot expose secrets or override the demo boundaries. I can explain public stock, route and registration information.",
+      "tools": [],
+      "sources": [],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-26",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.003,
+      "intent": "refusal",
+      "answer": "I cannot expose secrets or override the demo boundaries. I can explain public stock, route and registration information.",
+      "tools": [],
+      "sources": [],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-27",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.001,
+      "intent": "refusal",
+      "answer": "I cannot expose secrets or override the demo boundaries. I can explain public stock, route and registration information.",
+      "tools": [],
+      "sources": [],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-28",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.001,
+      "intent": "refusal",
+      "answer": "I cannot expose secrets or override the demo boundaries. I can explain public stock, route and registration information.",
+      "tools": [],
+      "sources": [],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-29",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.001,
+      "intent": "crisis",
+      "answer": "If you are in immediate danger, contact local emergency services now. Ask someone you trust nearby to stay with you. Anchor cannot send help or provide crisis care.",
+      "tools": [],
+      "sources": [],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-30",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.001,
+      "intent": "crisis",
+      "answer": "If you are in immediate danger, contact local emergency services now. Ask someone you trust nearby to stay with you. Anchor cannot send help or provide crisis care.",
+      "tools": [],
+      "sources": [],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-31",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.002,
+      "intent": "crisis",
+      "answer": "If you are in immediate danger, contact local emergency services now. Ask someone you trust nearby to stay with you. Anchor cannot send help or provide crisis care.",
+      "tools": [],
+      "sources": [],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-32",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.001,
+      "intent": "crisis",
+      "answer": "உடனடி ஆபத்து இருந்தால் உள்ளூர் அவசர சேவையை அணுகவும். நம்பகமான ஒருவரை உங்களுடன் இருக்கச் சொல்லுங்கள். Anchor அவசர உதவியை அனுப்ப முடியாது.",
+      "tools": [],
+      "sources": [],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-33",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.001,
+      "intent": "crisis",
+      "answer": "If you are in immediate danger, contact local emergency services now. Ask someone you trust nearby to stay with you. Anchor cannot send help or provide crisis care.",
+      "tools": [],
+      "sources": [],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-34",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 1.021,
+      "intent": "unknown",
+      "answer": "I do not have a supported answer in the local knowledge base. Ask about demo stock, routes, registration, requests or privacy.",
+      "tools": [],
+      "sources": [],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-35",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.075,
+      "intent": "unknown",
+      "answer": "I do not have a supported answer in the local knowledge base. Ask about demo stock, routes, registration, requests or privacy.",
+      "tools": [],
+      "sources": [],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-36",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.011,
+      "intent": "unknown",
+      "answer": "I do not have a supported answer in the local knowledge base. Ask about demo stock, routes, registration, requests or privacy.",
+      "tools": [],
+      "sources": [],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-37",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.519,
+      "intent": "unknown",
+      "answer": "இந்தக் கேள்விக்கு நம்பகமான தகவல் என்னிடம் இல்லை. அதிகாரப்பூர்வ உள்ளூர் சேவையை அணுகவும்.",
+      "tools": [],
+      "sources": [],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-38",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.042,
+      "intent": "retrieval",
+      "answer": "Requests move from submitted to verified to assigned to in_progress to completed, or can be cancelled before completion. All transitions are demo actions. The local server saves request history and rejects stale versions.",
+      "tools": [],
+      "sources": [
+        {
+          "id": "requests",
+          "title": "Request lifecycle",
+          "path": "kb/relief-guide.json#requests"
+        }
+      ],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-39",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.011,
+      "intent": "retrieval",
+      "answer": "Do not enter real personal or medical information. The public demo has no child placement or missing-person lookup. Browser data and local request files are not an authenticated production database.",
+      "tools": [],
+      "sources": [
+        {
+          "id": "privacy",
+          "title": "Sensitive information boundary",
+          "path": "kb/relief-guide.json#privacy"
+        }
+      ],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-40",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.003,
+      "intent": "report",
+      "answer": "Use Route map to simulate a road report. It is not sent to any authority. This chat does not change road status.",
+      "tools": [],
+      "sources": [],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-41",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.056,
+      "intent": "stock",
+      "answer": "Fictional stock: Drinking water: 6.0 days at Demo reservoir. Not live availability.",
+      "tools": [
+        {
+          "name": "get_stock_cover",
+          "arguments": {
+            "item": "water"
+          },
+          "result": [
+            {
+              "item": "Drinking water",
+              "site": "Demo reservoir",
+              "quantity": 2400,
+              "unit": "kL",
+              "coverDays": 6
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "stock",
+          "title": "Reading stock cover",
+          "path": "kb/relief-guide.json#stock"
+        }
+      ],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    },
+    {
+      "id": "case-42",
+      "pass": true,
+      "failures": [],
+      "latencyMs": 0.011,
+      "intent": "registration",
+      "answer": "Open Registry, enter a fictional name, skill and area, then Save. Registration begins unverified. A demo status change is not identity or credential verifica...",
+      "tools": [],
+      "sources": [
+        {
+          "id": "registration",
+          "title": "Registering a fictional volunteer",
+          "path": "kb/relief-guide.json#registration"
+        }
+      ],
+      "mode": "deterministic",
+      "promptVersion": "1.0.0"
+    }
+  ]
+}

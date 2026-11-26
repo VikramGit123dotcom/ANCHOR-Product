@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anchor: Chennai relief hub</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Poppins:wght@600;700&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<aside class="demo-banner">DEMO / fictional Chennai scenario. No emergency dispatch, SMS, clinical care or live road information. Use fictional data only.</aside>
+<header class="top">
+  <div class="logo">Anchor<small>Chennai relief hub</small></div>
+  <input id="q" type="search" placeholder="Search fictional volunteers, skills or areas" oninput="setQ(this.value)">
+  <span class="pill">📍 Chennai</span>
+</header>
+<nav class="cats" id="cats"></nav>
+<main>
+  <div id="view"></div>
+  <p class="note">Scenario data stays in this browser. Requests use the local backend when started with npm start. Prices and reports are illustrative; map tiles need internet. <button class="btn sec sm" onclick="resetAll()">Reset demo data</button></p>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="js/core.js"></script>
+<script src="js/app.js"></script>
+<script src="js/kb.js"></script>
+<script src="js/assistant-engine.js"></script>
+<script src="js/enhancements.js"></script>
+</body>
+</html>
